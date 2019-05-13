@@ -1,0 +1,12 @@
+version: '3.3'
+
+services:
+  config-server:
+    image: sujiakeji/sujiakeji-config-server
+    container_name: sujiakeji-config-server
+    ports:
+      - 9100:9100
+    environment:
+      EUREKA_SERVER_HOST: sujiakeji-eureka-server
+      EUREKA_SERVER_PORT: 9000
+      SPRING_PROFILES_ACTIVE: dev

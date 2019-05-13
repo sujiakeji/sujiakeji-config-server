@@ -1,0 +1,31 @@
+server:
+  port: 9100
+
+spring:
+  application:
+    name: sujiakeji-config-server
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/sujiakeji/sujiakeji-config-repo.git
+          searchPaths: '{application}'
+#          username: username
+#          password: password
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://${EUREKA_SERVER_HOST}:${EUREKA_SERVER_PORT}/eureka/
+  instance:
+    preferIpAddress: true
+
+logging:
+  level:
+    org.springframework.cloud: 'DEBUG'
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
